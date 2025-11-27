@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Gestión</title>
+    <meta name="description" content="Dashboard del sistema de gestión">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+        @layer theme {
+            :root {
+                /* Light Theme (Default) */
+                --primary-color: #3b82f6;
+                --secondary-color: #60a5fa;
+                --accent-color: #93c5fd;
+                
+                --bg-main: #eff6ff;
+                --bg-card: rgba(255, 255, 255, 0.4);
+                --bg-card-hover: rgba(255, 255, 255, 0.6);
+                --bg-input: rgba(255, 255, 255, 0.5);
+                
+                --text-main: #1f2937;
+                --text-secondary: #4b5563;
+                --text-muted: #9ca3af;
+                
+                --border-color: rgba(255, 255, 255, 0.3);
+                --border-focus: var(--primary-color);
+                
+                --shadow-color: rgba(31, 38, 135, 0.1);
+                --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            }
+
+            [data-theme="dark"] {
+                /* Dark Theme */
+                --primary-color: #3b82f6;
+                --secondary-color: #60a5fa;
+                
+                --bg-main: #0f172a;
+                --bg-card: rgba(30, 41, 59, 0.4);
+                --bg-card-hover: rgba(30, 41, 59, 0.6);
+                --bg-input: rgba(30, 41, 59, 0.5);
+                
+                --text-main: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --text-muted: #64748b;
+                
+                --border-color: rgba(255, 255, 255, 0.05);
+                --border-focus: var(--primary-color);
+                
+                --shadow-color: rgba(0, 0, 0, 0.4);
+                --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        @layer base {
+            body {
+                background-color: var(--bg-main);
+                color: var(--text-main);
+                transition: background-color 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+                font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            }
+
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            @keyframes popIn {
+                0% { opacity: 0; transform: scale(0.9); }
+                70% { transform: scale(1.02); }
+                100% { opacity: 1; transform: scale(1); }
+            }
+
+            .animate-fade-in-up {
+                animation: fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            }
+
+            .animate-pop-in {
+                animation: popIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            }
+        }
+
+        @layer components {
+            .glass-card {
+                @apply backdrop-blur-2xl border rounded-2xl transition-all duration-300;
+                background-color: var(--bg-card);
+                border-color: var(--border-color);
+                box-shadow: var(--glass-shadow);
+                transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            }
+            
+            .glass-card:hover {
+                background-color: var(--bg-card-hover);
+                transform: translateY(-4px) scale(1.01);
+                box-shadow: 0 12px 40px 0 var(--shadow-color);
+            }
+
+            .topbar-glass {
+                @apply backdrop-blur-xl border-b shadow-sm;
+                background-color: var(--bg-card);
+                border-color: var(--border-color);
+                transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            }
+
+            .sidebar-glass {
+                @apply backdrop-blur-xl border-r shadow-lg;
+                background-color: var(--bg-card);
+                border-color: var(--border-color);
+                transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>const ChartJS = window.Chart;</script>
+    <script src="utils/trickle-mock.js"></script>
+    <script type="text/babel" src="utils/auth.js"></script>
+    <script type="text/babel" src="components/Topbar.js"></script>
+    <script type="text/babel" src="components/Sidebar.js"></script>
+    <script type="text/babel" src="components/DashboardCard.js"></script>
+    <script type="text/babel" src="components/ChartCard.js"></script>
+    <script type="text/babel" src="utils/theme.js"></script>
+    <script type="text/babel" src="dashboard-app.js"></script>
+</body>
+
+</html>

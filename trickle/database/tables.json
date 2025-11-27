@@ -1,0 +1,47 @@
+[
+  {
+    "name": "user",
+    "fields": [
+      {
+        "name": "Username",
+        "type": "text",
+        "description": "Nombre de usuario",
+        "options": null
+      },
+      {
+        "name": "Password",
+        "type": "text",
+        "description": "Contrase\u00f1a del usuario",
+        "options": null
+      },
+      {
+        "name": "Role",
+        "type": "text",
+        "description": "Rol del usuario",
+        "options": [
+          "superusuario",
+          "administrador",
+          "usuario"
+        ]
+      },
+      {
+        "name": "Name",
+        "type": "text",
+        "description": "Nombre completo",
+        "options": null
+      },
+      {
+        "name": "Avatar",
+        "type": "text",
+        "description": "URL del avatar",
+        "options": null
+      },
+      {
+        "name": "Email",
+        "type": "text",
+        "description": "Correo electr\u00f3nico",
+        "options": null
+      }
+    ]
+  }
+]
