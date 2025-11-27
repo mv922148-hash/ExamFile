@@ -3,7 +3,7 @@ function DashboardCard({ icon, title, value, change, color, isPositive }) {
     return (
       <div className="glass-card p-6 hover:-translate-y-1 transition-transform duration-300" data-name="dashboard-card" data-file="components/DashboardCard.js">
         <div className="flex items-center justify-between mb-4">
-          <div className={`p-3 rounded-xl bg-${color}-500 bg-opacity-10 text-${color}-600`}>
+          <div className="p-3 rounded-xl bg-[var(--primary-color)] bg-opacity-10 text-[var(--primary-color)]">
             <div className={`icon-${icon} text-2xl`}></div>
           </div>
           <span className={`text-sm font-medium ${isPositive ? 'text-green-500' : 'text-red-500'} flex items-center`}>

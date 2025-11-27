@@ -3,6 +3,8 @@ function ChartCard({ title, type }) {
     const chartRef = React.useRef(null);
     const chartInstanceRef = React.useRef(null);
 
+    const { colors } = useTheme();
+
     React.useEffect(() => {
       if (chartRef.current) {
         const ctx = chartRef.current.getContext('2d');
@@ -11,14 +13,21 @@ function ChartCard({ title, type }) {
           chartInstanceRef.current.destroy();
         }
 
+        const hexToRgba = (hex, alpha) => {
+          const r = parseInt(hex.slice(1, 3), 16);
+          const g = parseInt(hex.slice(3, 5), 16);
+          const b = parseInt(hex.slice(5, 7), 16);
+          return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        };
+
         const data = type === 'line' || type === 'bar'
           ? {
             labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
             datasets: [{
               label: 'Datos',
               data: [12, 19, 15, 25, 22, 30],
-              backgroundColor: 'rgba(59, 130, 246, 0.2)',
-              borderColor: 'rgba(59, 130, 246, 1)',
+              backgroundColor: hexToRgba(colors.primary, 0.2),
+              borderColor: colors.primary,
               borderWidth: 2,
               tension: 0.4
             }]
@@ -28,7 +37,7 @@ function ChartCard({ title, type }) {
               labels: ['Categoría A', 'Categoría B', 'Categoría C'],
               datasets: [{
                 data: [30, 45, 25],
-                backgroundColor: ['#3b82f6', '#60a5fa', '#93c5fd']
+                backgroundColor: [colors.primary, colors.secondary, colors.accent]
               }]
             }
             : {
@@ -36,8 +45,8 @@ function ChartCard({ title, type }) {
               datasets: [{
                 label: 'Serie 1',
                 data: [65, 75, 70, 80],
-                backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                borderColor: 'rgba(59, 130, 246, 1)'
+                backgroundColor: hexToRgba(colors.primary, 0.2),
+                borderColor: colors.primary
               }]
             };
 
@@ -61,7 +70,7 @@ function ChartCard({ title, type }) {
           chartInstanceRef.current.destroy();
         }
       };
-    }, [type]);
+    }, [type, colors]);
 
     return (
       <div className="glass-card p-6" data-name="chart-card" data-file="components/ChartCard.js">

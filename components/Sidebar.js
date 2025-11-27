@@ -34,6 +34,11 @@ function Sidebar({ isOpen, onClose }) {
                 <span className="font-medium">Configuraciones</span>
               </a>
 
+              <a href="settings.html#customization" className={`flex items-center space-x-3 px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 ${isActive('settings.html#customization') ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30' : 'hover:bg-[var(--bg-card-hover)] text-[var(--text-secondary)] hover:text-[var(--text-main)]'}`}>
+                <div className="icon-palette text-xl"></div>
+                <span className="font-medium">Personalizar Interfaz</span>
+              </a>
+
               <button onClick={logout} className="w-full flex items-center space-x-3 px-6 py-3 rounded-full hover:bg-red-50 text-red-600 transition-all duration-300 hover:scale-105 mt-8">
                 <div className="icon-log-out text-xl"></div>
                 <span className="font-medium">Cerrar Sesión</span>
