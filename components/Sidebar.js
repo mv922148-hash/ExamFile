@@ -1,4 +1,4 @@
-function Sidebar({ isOpen, onClose }) {
+function Sidebar({ isOpen, onClose, user }) {
   try {
     const currentPath = window.location.pathname;
     const isActive = (path) => currentPath.includes(path);
@@ -33,8 +33,7 @@ function Sidebar({ isOpen, onClose }) {
                 <div className="icon-settings text-xl"></div>
                 <span className="font-medium">Configuraciones</span>
               </a>
-
-              <a href="settings.html#customization" className={`flex items-center space-x-3 px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 ${isActive('settings.html#customization') ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30' : 'hover:bg-[var(--bg-card-hover)] text-[var(--text-secondary)] hover:text-[var(--text-main)]'}`}>
+              <a href="personalization.html" className={`flex items-center space-x-3 px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 ${isActive('personalization.html') ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30' : 'hover:bg-[var(--bg-card-hover)] text-[var(--text-secondary)] hover:text-[var(--text-main)]'}`}>
                 <div className="icon-palette text-xl"></div>
                 <span className="font-medium">Personalizar Interfaz</span>
               </a>

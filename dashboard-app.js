@@ -39,7 +39,7 @@ function DashboardApp() {
     return (
       <div className="min-h-screen" data-name="dashboard-app" data-file="dashboard-app.js">
         <Topbar user={user} onMenuClick={() => setSidebarOpen(!sidebarOpen)} sidebarOpen={sidebarOpen} />
-        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} user={user} />
 
         <div className={`pt-28 pb-8 px-6 transition-all duration-300 ${sidebarOpen ? 'ml-80' : 'ml-0'}`}>
           <div className="max-w-7xl mx-auto">

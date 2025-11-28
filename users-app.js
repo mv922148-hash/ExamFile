@@ -132,7 +132,7 @@ function UsersApp() {
     return (
       <div className="min-h-screen" data-name="users-app" data-file="users-app.js">
         <Topbar user={currentUser} onMenuClick={() => setSidebarOpen(!sidebarOpen)} sidebarOpen={sidebarOpen} />
-        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} user={currentUser} />
 
         {selectedUser && (
           <UserModal user={selectedUser} onClose={() => setSelectedUser(null)} />
